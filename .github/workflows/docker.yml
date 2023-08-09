@@ -25,7 +25,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: false
-      #     tags: ${{ secrets.DOCKER_HUB_USERNAME }}/pytorch_dev:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest
 
       - name: List
         run: docker image ls
