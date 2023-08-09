@@ -30,5 +30,5 @@ jobs:
       - name: Build
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest $GITHUB_WORKSPACE
-          docker image ls
+          docker inspect --format='{{.Id}}' ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest | tee id.txt
           
