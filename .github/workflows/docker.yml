@@ -31,4 +31,11 @@ jobs:
         run: |
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest $GITHUB_WORKSPACE
           docker inspect --format='{{.Id}}' ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest | tee id.txt
+
+      - name: Add image id to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          file: id.txt
+          tag: ${{ github.ref }}
+          overwrite: true
           
