@@ -15,9 +15,8 @@ jobs:
 
       - name: Build and push
         run: |
-          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest $GITHUB_WORKSPACE
-          docker inspect --format='{{.Id}}' ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest | tee id.txt
-          docker push ${{ secrets.DOCKER_HUB_USERNAME }}text-generation-inference:latest
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/text-generation-inference:latest $GITHUB_WORKSPACE
+          docker inspect --format='{{.Id}}' ${{ secrets.DOCKER_HUB_USERNAME }}/text-generation-inference:latest | tee id.txt
 
       - name: Add image id to release
         uses: svenstaro/upload-release-action@v2
@@ -25,5 +24,9 @@ jobs:
           file: id.txt
           tag: ${{ github.ref }}
           overwrite: true
+
+      - name: Push
+        run: |
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/text-generation-inference:latest
           
           
