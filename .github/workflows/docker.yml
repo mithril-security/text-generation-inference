@@ -50,8 +50,8 @@ jobs:
     with:
       image: ${{ needs.build.outputs.image }}
       digest: ${{ needs.build.outputs.digest }}
-    secrets:
       registry-username: ${{ secrets.DOCKER_HUB_USERNAME }}
+    secrets:
       registry-password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
           
