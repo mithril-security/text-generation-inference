@@ -1,0 +1,5 @@
+.idea
+target
+router/tokenizer.json
+*__pycache__*
+jwt_key.pem
