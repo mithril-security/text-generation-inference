@@ -2,7 +2,7 @@ name: Publish to Docker Hub
 on: workflow_dispatch
 
 env:
-  IMAGE_REGISTRY: index.docker.io
+  IMAGE_REGISTRY: https://index.docker.io/v1
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
