@@ -17,7 +17,7 @@ install-launcher:
 install-benchmark:
 	cd benchmark && cargo install --path .
 
-install: install-server install-router install-launcher
+install: install-server install-router install-launcher install-custom-kernels
 
 server-dev:
 	cd server && make run-dev
