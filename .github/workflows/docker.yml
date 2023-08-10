@@ -13,7 +13,7 @@ jobs:
       - name: Login
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          username: mithrilsecuritysas
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       # - name: Build and push
@@ -37,8 +37,7 @@ jobs:
         id: build
         with:
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: mithrilsecuritysas/text-generation-inference:latest
   
   provenance:
     needs: [build]
