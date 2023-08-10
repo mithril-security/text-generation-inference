@@ -2,7 +2,7 @@ name: Publish to Docker Hub
 on: workflow_dispatch
 
 env:
-  IMAGE_REGISTRY: https://index.docker.io/v1
+  IMAGE_REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
@@ -25,8 +25,8 @@ jobs:
         uses: docker/login-action@49ed152c8eca782a232dede0303416e8f356c37b
         with:
           registry: ${{ env.IMAGE_REGISTRY }}
-          username: mithrilsecuritysas
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # - name: Build and push
       #   run: |
@@ -76,9 +76,8 @@ jobs:
     with:
       image: ${{ needs.build.outputs.image }}
       digest: ${{ needs.build.outputs.digest }}
-      registry-username: mithrilsecuritysas
+      registry-username: ${{ github.actor }}
     secrets:
-      registry-password: ${{ secrets.DOCKER_HUB_TOKEN }}
-
+      registry-password: ${{ secrets.GITHUB_TOKEN }}
           
           
