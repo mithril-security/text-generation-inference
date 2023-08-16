@@ -1,10 +1,10 @@
 [workspace]
 members = [
-    "benchmark",
+#    "benchmark",
     "router",
     "router/client",
     "router/grpc-metadata",
-    "launcher"
+#    "launcher"
 ]
 
 [workspace.package]
