@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-west2-docker.pkg.dev/$PROJECT_ID/text-generation-inference-repo/text-generation-inference:0.1.0', '.' ]
+  args: [ 'build', '-t', 'us-west2-docker.pkg.dev/amd-sev-356012/text-generation-inference-repo/text-generation-inference:0.1.0', '.' ]
 images:
-- 'us-west2-docker.pkg.dev/$PROJECT_ID/text-generation-inference-repo/text-generation-inference:0.1.0'
+- 'us-west2-docker.pkg.dev/amd-sev-356012/text-generation-inference-repo/text-generation-inference:0.1.0'
 options:
   requestedVerifyOption: VERIFIED
